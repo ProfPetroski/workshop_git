@@ -8,7 +8,7 @@ show_sidebar: true
 <ul>
   {% for slide in site.slides %}
     <li>
-      <h2><a href="{{site.url}}/{{site.baseurl}}/{{ slide.url }}" target="_blank">{{ slide.title }}</a></h2>
+      <h2><a href="{{site.url}}{{site.baseurl}}{{ slide.url }}" target="_blank">{{ slide.title }}</a></h2>
     </li>
   {% endfor %}
 </ul>

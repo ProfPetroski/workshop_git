@@ -3,7 +3,7 @@ layout: page
 title: Workshop Introdução ao GIT
 permalink: /about/
 ---
-![Logo CIVICES]({{site.url}}/{{site.baseurl}}/docs/assets/img/site/logos/CIVECE_LOGO.png)
+![Logo CIVICES]({{site.url}}{{site.baseurl}}/assets/img/site/logos/CIVECE_LOGO.png)
 
 ## Ciclo Virtual de Palestras de Engenharia de Computação e Engenharia de Software da UEPG.
 
