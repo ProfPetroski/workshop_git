@@ -22,7 +22,7 @@ title: Workshop GIT
 email: petroskilp@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Documentação criada para o workshop Introdução ao GIT do CIVICES
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/workshop_git" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: luiz_in
 github_username:  petroskilp
