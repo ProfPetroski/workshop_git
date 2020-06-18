@@ -1,0 +1,725 @@
+---
+layout: slides
+title: Workshop Introdução ao GIT
+---
+layout: true
+<div class="my-header"></div>
+ <div class="my-footer"><img src="/assets/img/slides/workshop_git/logo_site_black.png" /><p> Workshop GIT</p></div>
+---
+class: center, middle
+
+.image-75[![Logo do evento CIVICES](/assets/img/slides/workshop_git/CIVECE_LOGO.png)]
+
+# Workshop Introdução ao GIT
+<hr />
+### Profº Luiz Pedro Petroski
+
+petroskilp@gmail.com
+
+---
+class: center, middle
+# Introdução
+.image-75[![Vida de Programador Tirinha](/assets/img/slides/workshop_git/GITar.jpg)]
+.footnote[fonte: https://vidadeprogramador.com.br/2016/09/22/gitar-hero/]
+
+---
+class: top
+name: controle_versao
+# Controle de Versão
+- Como que você faz o controle de versão de um arquivo? E o compartilhamento?
+
+---
+template: controle_versao
+
+.image-75[![Vida de Programador Tirinha](/assets/img/slides/workshop_git/controle_versao.png)]
+
+---
+class: top
+# ...e desenvolvimento de software?
+
+.bold[Mudanças]
+- não são .bold[analisadas] antes de ser feitas
+- não são .bold[registradas] antes de ser implementadas
+- não são .bold[relatadas] àqueles que precisam saber
+- ou não são .bold[controladas] de forma que melhore a qualidade e reduza erros
+.image-35[![Vida de Programador Tirinha](/assets/img/slides/workshop_git/fight.jpg)]
+
+---
+class: top
+# Gerenciamento de Configuração de Software (GCS)
+
+.bold[Durante o desenvolvimento do software queremos saber:]
+- O que mudou e quando? (controle de versão)
+- Por que mudou? (controle de mudanças)
+- Quem fez a mudança? (auditoria de configuração)
+- Podemos reproduzir esta mudança? (auditoria de configuração)
+.image-15[![Vida de Programador Tirinha](/assets/img/slides/workshop_git/controle_config.png)]
+---
+class: top
+# Gerenciamento de Configuração de Software
+
+- Coordenar o desenvolvimento para minimizar a confusão!
+- “Arte de identificar, organizar e controlar modificações no software que está sendo criado, maximizando a produtividade e reduzindo os erros”
+.image-50[![Vida de Programador Tirinha](/assets/img/slides/workshop_git/gk.png)]
+
+---
+class: top
+.container[# Gerenciamento de Configuração de Software
+
+.left-column[.bold[As atividades são desenvolvidas para:]
+
+- Identificar a alteração
+- Controlar a alteração
+- Assegurar que a alteração seja implementada corretamente
+- Relatar as alterações aos outros interessados
+]
+.right-column[
+.image-100[![Imagem](/assets/img/slides/workshop_git/images.jpg)]
+]
+]
+---
+class: top
+# O que é uma configuração?
+
+-   Configuração de um sistema é uma coleção de versões específicas de
+    itens de configuração (hardware, firmware ou software) que são
+    combinados de acordo com procedimentos específicos de construção
+    para servir a uma finalidade particular.
+
+.image-90[![Imagem](/assets/img/slides/workshop_git/config.png)]
+---
+class: top
+# Conceito
+
+.bold[Item de configuração:] Elemento unitário ou um grupo de elementos
+    para efeito de controle de versão.
+- Código
+- Documentação
+- Diagramas, planos, ferramentas, casos de teste e etc
+
+Todos os documentos que podem ser úteis para a evolução futura do
+    sistema
+---
+class: top
+# Conceito
+
+- .bold[Baseline:] configuração formalmente aprovada que servirá de
+    referência para desenvolvimento posterior A configuração do software
+    em um ponto discreto no tempo.
+- Quando um conjunto de artefatos de
+    software se torna um item de configuração?
+
+.image-50[![Imagem](/assets/img/slides/workshop_git/baseline_progression.png)]
+---
+class: top
+# Qual a importância do controle de versões?
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/importancia.png)]
+
+---
+class: top
+.container[
+# Uma situação problema
+Você precisa editar um site hospedado em um servidor:
+1. Você faz o download via FTP
+2. Faz as alterações necessárias
+3. Envia os arquivos alterados para o servidor via FTP
+
+.image-75[![Imagem](/assets/img/slides/workshop_git/tirinha1865.png)]
+.footnote[fonte:
+https://vidadeprogramador.com.br/2018/06/15/ftp/]]
+
+---
+class: top
+# Uma situação problema
+Agora outro desenvolvedor também deve fazer alterações no site\...
+
+1. Baixa o mesmo arquivo junto com você
+2. Edita e manda para o servidor depois de você
+3. Sobrescreve suas alterações!!!
+
+.image-30[![Imagem](/assets/img/slides/workshop_git/alonso.png)]
+
+---
+class: top
+# Controle de versões
+Principais objetivos do Controle de Versões do Sistema
+- Trabalhar simultaneamente
+- Evitar conflitos em alterações
+- Manter versões
+
+.image-50[![Imagem](/assets/img/slides/workshop_git/versioncontrol.jpg)]
+
+---
+class: top
+.container[
+# Controle de Mudanças 
+
+.left-column[.bold[Objetivo]: Garantir que todas as mudanças ocorram de
+maneira controlada e otimizada
+- Manter histórico de mudança
+- Justificar mudança
+]
+.right-column[
+Exemplo:
+
+.bold[Mudanças da v2.2 para v2.3:]
+- correção do defeito D345
+- correção do defeito D346
+- adicionada a funcionalidade do RF44
+
+.bold[Pendências:]
+- melhorar usabilidade da interface I43
+]
+]
+---
+class: top
+# Integração contínua
+- Uma das práticas mais importantes do desenvolvimento ágil!
+- Agilizar tarefas demoradas como a compilação de um projeto e a execução dos seus testes automatizados
+- Tarefas são executadas a cada mudança no repositório de código e, em
+caso de erros de compilação ou falhas nos testes automatizados,
+todos os desenvolvedores são alertados rapidamente
+
+---
+class: top
+# Integração Contínua
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/CI-in-devOps.jpg)]
+
+---
+class: top
+# Ferramentas de apoio
+
+  Tipo de Ferramenta  |  Open Source                                              |  Comercial
+  ------------------- | ----------------------------------------------------------| --------------------------------------------------------------------------------
+  Controle de versão  |  Mercurial, **Git**, Subversion, CVS                      |  Team Foundation Server, Team Concert, ClearCase, StarTeam, Perforce, BitKeeper
+  Controle de Mudança |  Trac, Redmine, Mantis, Bugzilla                          |  Jira, FogBUGZ, CaliberRM, Perforce
+  Integração Contínua |  Jenkings, Bitten, Scons, Ant, Maven, CruiseControl, Gump |  AntHill Pro, FinalBuilder, BuildForge
+
+---
+class: top
+# GIT
+
+.bold[Visão geral do Git e Github]
+O que é Git?
+- Sistema de Controle de Versão Distribuído
+- Criado por Linus Torvalds (2005)
+- Auxiliar no Desenvolvimento do Linux
+O que é Github?
+- Serviço de Web Hosting compartilhado para projetos que usam o controle de versionamento Git
+---
+class: top
+# Algumas empresas que utilizam git
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/usinggit.png)]
+
+---
+class: top
+# Controle de Versões distribuído
+
+.image-50[![Imagem](/assets/img/slides/workshop_git/Distributed-VCS.png)]
+
+---
+class: top
+# Instalando o git
+- Windows
+- Linux
+- macOS: 
+
+<https://git-scm.com/download>
+
+
+---
+class: top
+# 3 Estados do git
+.image-100[![Imagem](/assets/img/slides/workshop_git/areasgit.png)]
+
+---
+class: top
+
+# Configurações do git
+
+- É importante se identificar no git, pois é uma das etapas do controle de versão (auditoria)
+```bash
+git config l
+git config --global <variavel> <valor>
+```
+Exemplo:
+```bash
+git config --global user.name 'Luiz Pedro Petroski'
+git config --global user.email 'petroskilp@gmail.com'
+```
+```bash
+git help
+git help <parametro>
+```
+---
+class: top
+# Iniciando o versionamento
+
+Para transformar um diretório local em um repositório Git, basta
+    abrir o diretório via terminal e executar o comando:
+```bash
+git init
+```
+- git init irá iniciar a estrutura de versionamento no
+diretório atual
+```bash
+git init meu_projeto
+```
+- git init meu_projeto irá criar um diretório de nome "meu_projeto" e criar a estrutura dentro deste diretório.
+
+---
+class: top
+# Monitorando mudanças
+
+- Supondo que adicionamos o arquivo linguagens.txt no diretório "meu_projeto"
+```bash
+git status
+```
+.image-75[![Imagem](/assets/img/slides/workshop_git/git_status.png)]
+
+---
+class: top
+# Enviando para a Staging Area
+
+- Para que um arquivo seja rastreado, devemos executar o seguinte
+    comando:
+```bash
+git add carros.txt
+#ou
+git add . 
+# o ponto (.) inclui todos os arquivos não rastreados ou modificados
+```
+.image-55[![Imagem](/assets/img/slides/workshop_git/git_add.png)]
+
+---
+class: top
+# Gravando um arquivo no repositório (commit)
+
+- Para gravar as mudanças no repositório, execute o comando:
+```bash
+git commit -m "Adicionando as linguagens de programação que lembrei agora"
+```
+.image-55[![Imagem](/assets/img/slides/workshop_git/git_commit.png)]
+
+---
+class: top
+# Histórico de commits
+
+- Para visualizar o histórico de commits
+```bash
+git log
+```
+- Para mostrar as alterações de um commit
+```bash
+git show <commit>
+```
+- Commit deve ser especificado pela chave
+
+.image-50[![Imagem](/assets/img/slides/workshop_git/git_log.png)]
+
+---
+class: top
+# Ramificações (branching)
+
+- Branch é uma ramificação do repositório
+- Alterações (commits) ocorrem na branch
+- Muito útil para trabalhos colaborativos
+- Branchs de desenvolvimento facilitam o controle
+
+Para listar as branches do nosso repositório, devemos executar o comando:
+
+```bash
+git branch
+```
+.image-50[![Imagem](/assets/img/slides/workshop_git/git_branch.png)]
+
+---
+class: top
+# Listar e criar branch
+- Como listar todas as branches?
+```bash
+git branch -v
+```
+- Como criar uma branch?
+```bash
+git branch nome_da_branch
+```
+- Modo mais rápido de criar e deixá-la como corrente:
+
+```bash
+git checkout -b nome_da_branch
+```
+---
+class: top
+# Alterar branch corrente e apagar
+
+- Como mudar de branch?
+```bash
+git checkout nome_da_branch
+```
+- Apagar uma branch em seu repositório local
+```bash
+git branch -d nome_da_branch
+```
+- Apagar uma branch remota
+```bash
+git push origin --delete nome_da_branch
+```
+
+---
+class: top
+# Mesclar branch
+
+- Supondo que estamos na branch master, podemos verificar as branches 
+ainda não mescladas da seguinte forma:
+```bash
+git branch --no-merged
+```
+- Temos uma branch com modificações em relação a branch master!
+
+.image-55[![Imagem](/assets/img/slides/workshop_git/git_merged.png)]
+
+---
+class: top
+.container[
+# Mesclar branch
+.left-column[
+branch master
+.image-100[![Imagem](/assets/img/slides/workshop_git/ling_master.png)]
+]
+
+.right-column[
+branch branch_ordenado
+.image-100[![Imagem](/assets/img/slides/workshop_git/ling_branc_ordenado.png)]
+]
+- Queremos mesclar a branch master com a branch_ordenado
+- O que vai acontecer?
+]
+---
+class: top
+# Mesclar branch
+
+-   Para mesclar podemos usar o comando:
+```bash
+git merge branch_ordenado -m "Mesclando com a branch_ordenado"
+```
+.image-100[![Imagem](/assets/img/slides/workshop_git/merge_conflit.png)]
+
+---
+class: top
+# Resultado do conflito
+
+- As partes conflitantes são marcadas
+- E você pode escolher se mantém a versão do branch master, ou da branch_ordenada
+- Ou até mesmo as duas ao mesmo tempo
+- Ou uma terceira versão que você rescrever
+
+.image-50[![Imagem](/assets/img/slides/workshop_git/git_conflitos_resolver.png)]
+
+---
+class: top
+# Comitando a resolução dos conflitos
+
+- Faça as alterações no arquivo mesclado e depois:
+```bash
+git add .
+git commit -m "mensagem"
+```
+
+.image-50[![Imagem](/assets/img/slides/workshop_git/git_both_modified.png)]
+
+---
+class: top
+# Ignorando arquivos (.gitignore)
+
+- Basta criar um arquivo chamado .gitignore no diretório principal do
+nosso projeto com os nomes dos arquivos ou extensões que queremos
+ignorar.
+-   Ex.:<br>
+    .log<br>
+    imagens/*.bmp
+- Em projetos Java, arquivos .class, .jar e .war são exemplos de arquivos que devem ser ignorados.
+- Detalhe importante: o .gitignore também envoluirá com o projeto.
+- Assim, o que precisamos fazer?
+
+---
+class: top
+.container[
+# Visualizando Logs
+.left-column[
+git log .image-100[![Imagem](/assets/img/slides/workshop_git/git_log2.png)]
+]
+.right-column[
+git log - -graph - -oneline 
+.image-100[![Imagem](/assets/img/slides/workshop_git/git_log_graph.png)]
+]
+]
+
+---
+class: top
+.container[
+# Verificar diferenças entre commits
+```bash
+git diff d7c7547
+```
+.image-50[![Imagem](/assets/img/slides/workshop_git/git_diff.png)]
+]
+
+---
+class: top
+.container[
+# Trabalho em equipe
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/tirinha1713.png)]
+.footnote[fonte:
+<https://vidadeprogramador.com.br/2017/07/19/mensagem-do-commit/>]
+]
+---
+class: top
+# Revisão de conceitos
+
+- Merge?
+- Commit?
+- Branch?
+- Config?
+- Log?
+- Checkout?
+
+---
+class: center
+# GitHub
+---
+class: top
+# Remote
+
+- Repositório remoto, hospedado em um servidor
+- São referenciados por uma URL
+- Podem receber vários commits
+- Sincronizar o trabalho colaborativo
+- Autenticação com usuário e senha (https) ou par de chaves (SSH)
+```bash
+git remote add origin <$URL>
+```
+.image-50[![Imagem](/assets/img/slides/workshop_git/github-logo.png)]
+
+---
+class: top
+# Push
+
+- Enviar alterações (commits) da branch para o repositório remoto
+```bash
+git push <$remote> <$branch>
+```
+- O envio é rejeitado se o repositório local não estiver sincronizado
+```bash  
+git push orgin master
+```
+.image-25[![Imagem](/assets/img/slides/workshop_git/push_bw_p.png)]
+
+---
+class: top
+# Pull
+
+- Baixa as alterações do repositório remoto e realiza o Merge automático com o repositório local
+-   Mantém o repositório sincronizado com os últimos commits de uma
+branch
+- Permite baixar novas branchs que não foram criadas localmente
+```bash
+git pull
+git pull <$remote> <$branch>
+```
+
+.image-25[![Imagem](/assets/img/slides/workshop_git/pull.jpg)]
+
+---
+class: top
+# Clone
+
+- Baixa o repositório remoto
+- Outra forma de criar um repositório local
+- Já vem com o remote configurado
+```
+git clone <$URL>
+```
+
+.image-50[![Imagem](/assets/img/slides/workshop_git/oclone.jpg)]
+
+---
+class: top
+# Criar uma conta no github
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/creategithub.png)]
+
+---
+class: top
+# Criar um repositório
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/criar_repo.png)]
+
+---
+class: top
+# Utilizando o repositório
+
+.image-75[![Imagem](/assets/img/slides/workshop_git/git_repo_vazio.png)]
+
+---
+class: top
+# Usando seu repositório do GitHub
+```bash
+- git remote add $<$repository name> <$url>
+- git push $<$repository name$>$ $<$branch name$>$
+```
+.image-50[![Imagem](/assets/img/slides/workshop_git/git_add_remote.png)]
+
+---
+class: top
+# Clonando seu repositório do GitHub
+- Faz o download do projeto em um novo diretório
+- Clonar o repositório:
+```bash
+git clone <$url>
+```
+- Exibir o remote configurado:
+```bash
+git remote -v
+```
+.image-50[![Imagem](/assets/img/slides/workshop_git/git_clone.png)]
+
+---
+class: top
+# tagging
+
+- Marcar um commit com uma tag
+```bash
+git tag <$tagname>
+```
+.image-100[![Imagem](/assets/img/slides/workshop_git/git_tag.png)]
+
+---
+class: top
+# tagging
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/github_tag.png)]
+---
+class: top
+# forking
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/forking.png)]
+---
+class: top
+# forking
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/forks.png)]
+---
+class: top
+# Outras funcionalidades do github
+
+- Readme.md
+- Wiki
+- Web diff (código/imagens)
+- Pull Request
+- Comentários e Discussões
+- Issue Tracking
+
+---
+class: top
+# readme.md
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/readmegit.png)]
+
+---
+class: top
+# Wiki
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/wiki.png)]
+
+---
+class: top
+# WebDiff
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/web_diff.png)]
+
+---
+class: top
+# Pull Request
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/pullrequest.png)]
+---
+class: top
+# Pull Request
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/pull-request-flow.png)]
+
+---
+class: top
+# Issue Tracking
+
+.image-100[![Imagem](/assets/img/slides/workshop_git/issue.png)]
+---
+class: top
+# Prática 01
+
+1. Instale o git na sua máquina
+2. Crie um diretório chamado aprendendo\_git e entre nele via terminal
+3. Use git config e informe seu nome e email
+4. git init
+5. git status
+6. Crie um arquivo anotacoes.txt nesse diretório, inclua seu nome nesse arquivo
+7. git add anotacoes.txt
+8. git commit -m "meu primeiro commit"
+9. git status
+
+---
+class: top
+# Prática 02
+1. Crie uma branch feedback (git checkout -b feedback)
+2. Abra o arquivo anotacoes.txt e veja se contém seu nome
+3. Altere o anotacoes.txt (nessa branch), apague seu nome e faça um texto explicando o que é o git
+4. git status
+5. git add anotacoes.txt
+6. git commit -m "meu commit na branch feedback"
+7. Mude para a branch master e adicione a sua idade no arquivo anotacoes.txt
+8. Faça o merge com a branch feedback
+
+---
+class: top
+# Prática 02
+
+8. Resolva o conflito (edite o arquivo anotacoes.txt)
+9. git add anotacoes.txt
+10. git commit -m "resolvendo conflitos"
+11. delete a branch feedback
+
+---
+class: top
+# Tutoriais e Guias
+
+Tutorial auto-instrucional:
+- <https://learngitbranching.js.org/>
+- <https://gitexercises.fracz.com/>
+- <http://git-school.github.io/visualizing-git/>
+- <https://github.com/jlord/git-it-electron>
+
+Guias e livros
+- <https://rogerdudler.github.io/git-guide/index.pt_BR.html>
+- <https://guides.github.com/introduction/git-handbook/>
+- <https://git-scm.com/book/pt-br/v2>
+- <http://marklodato.github.io/visual-git-guide/index-pt.html>
+
+---
+class: top
+# Referências
+
+Livros
+- Eric Sink. 2011. Version Control by Example (1st ed.). PYOW Sports Marketing. (FREE EBOOK) <https://ericsink.com/vcbe/index.html>
+- Scott Chacon e Ben Straub. 2014. Pro Git (2nd ed.). Apress, Berkely, CA, USA. (FREE EBOOK) <https://git-scm.com/book/pt-br/v2>
+- Pressman, R. S. Software engineering: A practitioner's approach. 5th ed. McGraw-Hill Higher Education, 2001.
+- Kemper C., Oxley, I. 2012. Foundation Version Control for Web Developers. Appress.
+
+---
+class: top
+# Perguntas
+.image-100[![Imagem](/assets/img/slides/workshop_git/duvidas.png)]
